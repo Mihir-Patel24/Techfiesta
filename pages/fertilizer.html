@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Advisory</title>
+    <link rel="stylesheet" href="../css/style.css" >
+</head>
+<body>
+  
+    <header>
+        <div class="container">
+            <h1>🌱 Fertilizer Advisory for Farmers</h1>
+            <p>Get personalized fertilizer recommendations for your crops!</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container form-container">
+            <form id="fertilizerForm">
+                <label for="crop">Select Crop:</label>
+                <select id="crop" required>
+                    <option value="">--Choose Crop--</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="rice">Rice</option>
+                    <option value="maize">Maize</option>
+                    <option value="vegetables">Vegetables</option>
+                </select>
+
+                <label for="soil">Select Soil Type:</label>
+                <select id="soil" required>
+                    <option value="">--Choose Soil--</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="clay">Clay</option>
+                    <option value="silty">Silty</option>
+                </select>
+
+                <label for="growth">Growth Stage:</label>
+                <select id="growth" required>
+                    <option value="">--Choose Stage--</option>
+                    <option value="initial">Initial Stage</option>
+                    <option value="vegetative">Vegetative Stage</option>
+                    <option value="flowering">Flowering Stage</option>
+                    <option value="harvest">Harvest Stage</option>
+                </select>
+
+                <button type="submit">Get Recommendation</button>
+            </form>
+
+            <div id="recommendation" class="recommendation-card">
+                <h2>Your Recommendation:</h2>
+                <p id="recText">Fill the form and click submit.</p>
+            </div>
+        </div>
+    </main>
+
+    
+
+    <script src="fertilizer.js"></script>
+</body>
+</html>
