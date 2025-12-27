@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>SoilSync | Crop Prediction</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -34,50 +41,59 @@
 
   <h2>🌾 Crop Prediction</h2>
   <p class="subtitle">
-    Get best crop recommendations based on soil and season
+    Get crop recommendations based on soil, season, temperature, and rainfall
   </p>
 
   <!-- FORM -->
-  <form class="crop-form">
+  <form class="crop-form" id="cropForm">
 
     <label>Soil Type</label>
-    <select>
-      <option>Black Soil</option>
-      <option>Red Soil</option>
-      <option>Alluvial Soil</option>
-      <option>Laterite Soil</option>
+    <select id="soil_type" required>
+      <option value="">Select soil type</option>
+      <option value="Black">Black Soil</option>
+      <option value="Red">Red Soil</option>
+      <option value="Alluvial">Alluvial Soil</option>
+      <option value="Laterite">Laterite Soil</option>
     </select>
 
     <label>Season</label>
-    <select>
-      <option>Kharif</option>
-      <option>Rabi</option>
-      <option>Zaid</option>
+    <select id="season" required>
+      <option value="">Select season</option>
+      <option value="kharif">Kharif</option>
+      <option value="rabi">Rabi</option>
+      <option value="zaid">Zaid</option>
     </select>
 
-    <label>Location / District</label>
-    <input type="text" placeholder="Enter your district" />
+    <label>Average Temperature (°C)</label>
+    <input
+      type="number"
+      id="temperature"
+      placeholder="e.g. 28"
+      required
+    />
 
-    <label>Water Availability</label>
-    <select>
-      <option>Low</option>
-      <option>Medium</option>
-      <option>High</option>
-    </select>
+    <label>Expected Rainfall (mm)</label>
+    <input
+      type="number"
+      id="rainfall"
+      placeholder="e.g. 180"
+      required
+    />
 
-    <button type="button" onclick="predictCrop()">
+    <button type="submit">
       Predict Best Crop
     </button>
 
   </form>
 
   <!-- RESULT -->
-  <div id="cropResult" class="result-box">
-    🌱 Prediction will appear here
+  <div id="resultCard" class="result-box" style="display:none;">
+    <span id="cropResult">🌱 Prediction will appear here</span>
   </div>
 
 </section>
 
+<!-- JS -->
 <script src="../js/crop.js"></script>
 
 </body>

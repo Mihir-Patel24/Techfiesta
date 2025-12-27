@@ -1,38 +1,32 @@
 // -------------------- GLOBAL VARIABLES --------------------
 let recognition = null;
-
+let sessionId = null;
 // -------------------- SEND MESSAGE --------------------
 async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatBox = document.getElementById("chatBox");
 
-  const message = input.value.trim();
-  if (!message) return;
+  if (!input.value.trim()) return;
 
-  chatBox.innerHTML += `<div class="user-msg">${message}</div>`;
+  chatBox.innerHTML += `<div class="user-msg">${input.value}</div>`;
+
+  const response = await fetch("http://127.0.0.1:8000/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: input.value,
+      language: "hi", // en / hi / mr
+      session_id: sessionId
+    })
+  });
+
+  const data = await response.json();
+  sessionId = data.session_id;
+
+  chatBox.innerHTML += `<div class="bot-msg">${data.reply}</div>`;
   input.value = "";
-
-  try {
-    const response = await fetch("http://127.0.0.1:8000/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        message: message,
-        language: "en"   // change later using dropdown
-      })
-    });
-
-    const data = await response.json();
-    chatBox.innerHTML += `<div class="bot-msg">${data.reply}</div>`;
-
-  } catch (error) {
-    chatBox.innerHTML += `<div class="bot-msg error">Backend not reachable</div>`;
-  }
-
-  chatBox.scrollTop = chatBox.scrollHeight;
 }
+
 
 // -------------------- START VOICE INPUT --------------------
 function startVoice() {
