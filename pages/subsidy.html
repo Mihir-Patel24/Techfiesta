@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subsidy Advisory</title>
-    <link rel="stylesheet" href="../css/style.css" >
+    <title>Subsidy Advisory - SoilSync</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header>
-        <h1>Subsidy Advisory</h1>
-        <p>Check government subsidy eligibility easily</p>
+    <header class="header">
+        <div class="brand">
+            🌱 <strong>SoilSync</strong>
+            <small>Subsidy Advisory</small>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="chatbot.html">Chatbot</a>
+        </nav>
     </header>
 
-    <main>
-        <div class="main-box">
+    <main class="container">
+        <div class="page-header">
+            <h1>🏛️ Government Subsidy Finder</h1>
+            <p>Discover eligible subsidies and schemes for your farming needs</p>
+        </div>
 
+        <div class="form-card">
             <h2>Farmer Details</h2>
-
             <div class="input-grid">
                 <div class="input-box">
                     <label>Select Crop</label>
@@ -27,6 +35,7 @@
                         <option value="wheat">Wheat</option>
                         <option value="rice">Rice</option>
                         <option value="maize">Maize</option>
+                        <option value="cotton">Cotton</option>
                         <option value="vegetables">Vegetables</option>
                     </select>
                 </div>
@@ -36,24 +45,23 @@
                     <select id="category">
                         <option value="">Choose category</option>
                         <option value="small">Small Farmer</option>
-                        <option value="medium">Medium Farmer</option>
+                        <option value="marginal">Marginal Farmer</option>
                         <option value="large">Large Farmer</option>
                     </select>
                 </div>
 
                 <div class="input-box">
                     <label>Land Size (Acres)</label>
-                    <input type="number" id="land" placeholder="e.g. 3">
+                    <input type="number" id="land" placeholder="e.g. 3" min="0.1" step="0.1">
                 </div>
             </div>
 
-            <button id="getSubsidy">Check Subsidy</button>
-
+            <button id="getSubsidy" class="primary-btn">🔍 Find Eligible Subsidies</button>
         </div>
 
         <div id="result" class="result-container"></div>
     </main>
 
-    <script src="subsidy.js"></script>
+    <script src="../js/subsidy.js"></script>
 </body>
 </html>

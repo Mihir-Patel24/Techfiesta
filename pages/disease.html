@@ -33,31 +33,53 @@
 <!-- MAIN -->
 <section class="disease-container">
 
-  <h2>🦠 Crop Disease Detection</h2>
+  <h2>🦠 AI Disease Detection</h2>
   <p class="subtitle">
-    Upload a crop leaf image to identify possible disease
+    Choose your preferred method for disease diagnosis
   </p>
 
-  <!-- IMAGE UPLOAD -->
-  <div class="upload-box">
-    <input type="file" id="imageUpload" accept="image/*" />
-    <p>Select or capture a leaf image</p>
+  <!-- METHOD SELECTION -->
+  <div class="method-tabs">
+    <button class="tab-btn active" onclick="showMethod('image')">📸 Image Analysis</button>
+    <button class="tab-btn" onclick="showMethod('quiz')">📝 Symptom Quiz</button>
   </div>
 
-  <!-- IMAGE PREVIEW -->
-  <img id="previewImage" class="preview-image" />
+  <!-- IMAGE METHOD -->
+  <div id="imageMethod" class="method-content">
+    <div class="upload-box">
+      <input type="file" id="imageUpload" accept="image/*" />
+      <p>Select or capture a leaf image</p>
+      <small>Supports: JPG, PNG, WebP</small>
+    </div>
+    <img id="previewImage" class="preview-image" />
+    <button onclick="detectDisease()">🔍 Analyze Image</button>
+  </div>
 
-  <!-- BUTTON -->
-  <button onclick="detectDisease()">Detect Disease</button>
+  <!-- QUIZ METHOD -->
+  <div id="quizMethod" class="method-content" style="display:none">
+    <div class="quiz-container">
+      <div id="quizQuestion" class="quiz-question"></div>
+      <div id="quizOptions" class="quiz-options"></div>
+      <button id="nextBtn" onclick="nextQuestion()" style="display:none">Next Question</button>
+      <button id="startQuizBtn" onclick="startQuiz()">🎯 Start Symptom Quiz</button>
+    </div>
+  </div>
 
   <!-- RESULT -->
   <div id="diseaseResult" class="result-box">
     🧪 Detection result will appear here
   </div>
 
+  <!-- TREATMENT RECOMMENDATIONS -->
+  <div id="treatmentRecommendations" class="treatment-box" style="display:none">
+    <h3>💊 Treatment Recommendations</h3>
+    <div id="treatmentContent"></div>
+  </div>
+
 </section>
 
 <script src="../js/disease.js"></script>
+<script src="../js/language.js"></script>
 
 </body>
 </html>

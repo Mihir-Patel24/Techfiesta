@@ -2,83 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>SoilSync | Crop Prediction</title>
+  <title>Crop Recommendation - SoilSync</title>
   <link rel="stylesheet" href="../css/style.css" />
 </head>
-
 <body>
+  <header class="header">
+    <div class="brand">
+      🌱 <strong>SoilSync</strong>
+      <small>Crop Recommendation</small>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="chatbot.html">Chatbot</a>
+    </nav>
+  </header>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="brand">
-    🌱 <strong>SoilSync</strong>
-    <small>AI Farmer Advisory Platform</small>
-  </div>
+  <main class="container">
+    <div class="page-header">
+      <h1>🌾 Smart Crop Recommendation</h1>
+      <p>Get AI-powered crop suggestions based on your soil and environmental conditions</p>
+    </div>
 
-  <nav class="nav-links">
-    <a href="../index.html">Home</a>
-    <a href="../pages/chatbot.html">Chatbot</a>
-  </nav>
+    <div class="form-card">
+      <form class="crop-form">
+        <div class="input-grid">
+          <div class="input-box">
+            <label>Soil Type</label>
+            <select id="soilType">
+              <option value="black">Black Soil</option>
+              <option value="clay">Clay Soil</option>
+              <option value="sandy">Sandy Soil</option>
+              <option value="loamy" selected>Loamy Soil</option>
+            </select>
+          </div>
 
-  <div class="header-actions">
-    <select id="languageSelect" class="lang-select">
-      <option value="en-IN">English</option>
-      <option value="hi-IN">हिंदी</option>
-      <option value="mr-IN">मराठी</option>
-    </select>
-  </div>
-</header>
+          <div class="input-box">
+            <label>Climate</label>
+            <select id="climate">
+              <option value="tropical">Tropical</option>
+              <option value="subtropical" selected>Subtropical</option>
+              <option value="temperate">Temperate</option>
+              <option value="arid">Arid</option>
+            </select>
+          </div>
 
-<!-- MAIN CONTAINER -->
-<section class="crop-container">
+          <div class="input-box">
+            <label>Season</label>
+            <select id="season">
+              <option value="kharif" selected>Kharif (Monsoon)</option>
+              <option value="rabi">Rabi (Winter)</option>
+              <option value="zaid">Zaid (Summer)</option>
+            </select>
+          </div>
 
-  <h2>🌾 Crop Prediction</h2>
-  <p class="subtitle">
-    Get best crop recommendations based on soil and season
-  </p>
+          <div class="input-box">
+            <label>Water Availability</label>
+            <select id="water">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
 
-  <!-- FORM -->
-  <form class="crop-form">
+        <button type="button" onclick="predictCrop()" class="primary-btn">
+          🌱 Get Crop Recommendations
+        </button>
+      </form>
+    </div>
 
-    <label>Soil Type</label>
-    <select>
-      <option>Black Soil</option>
-      <option>Red Soil</option>
-      <option>Alluvial Soil</option>
-      <option>Laterite Soil</option>
-    </select>
+    <div id="cropResult" class="result-card">
+      <h2>🌿 Crop Recommendations</h2>
+      <div class="result-content">
+        🌱 Fill the form above and click the button to get personalized crop recommendations
+      </div>
+    </div>
+  </main>
 
-    <label>Season</label>
-    <select>
-      <option>Kharif</option>
-      <option>Rabi</option>
-      <option>Zaid</option>
-    </select>
-
-    <label>Location / District</label>
-    <input type="text" placeholder="Enter your district" />
-
-    <label>Water Availability</label>
-    <select>
-      <option>Low</option>
-      <option>Medium</option>
-      <option>High</option>
-    </select>
-
-    <button type="button" onclick="predictCrop()">
-      Predict Best Crop
-    </button>
-
-  </form>
-
-  <!-- RESULT -->
-  <div id="cropResult" class="result-box">
-    🌱 Prediction will appear here
-  </div>
-
-</section>
-
-<script src="../js/crop.js"></script>
-
+  <script src="../js/crop.js"></script>
 </body>
 </html>

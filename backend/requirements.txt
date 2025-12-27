@@ -1,0 +1,10 @@
+flask==2.3.3
+flask-cors==4.0.0
+requests==2.31.0
+pillow==10.0.1
+numpy==1.24.3
+tensorflow==2.13.0
+gtts==2.3.2
+speechrecognition==3.10.0
+python-dotenv==1.0.0
+gunicorn==21.2.0

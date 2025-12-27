@@ -1,7 +1,7 @@
 const btn = document.getElementById("getSubsidy");
 const result = document.getElementById("result");
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", async () => {
     const crop = document.getElementById("crop").value;
     const category = document.getElementById("category").value;
     const land = document.getElementById("land").value;
@@ -11,26 +11,41 @@ btn.addEventListener("click", () => {
         return;
     }
 
-    let subsidies = [];
+    try {
+        const response = await fetch('/api/subsidy/find', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                crop: crop,
+                category: category,
+                land_size: land
+            })
+        });
 
-    if (crop === "wheat") {
-        subsidies.push("50% subsidy on certified wheat seeds");
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            result.innerHTML = `
+                <div class="subsidies-header">
+                    <h3>🎯 Found ${data.total_schemes} Eligible Subsidies</h3>
+                </div>
+                ${data.subsidies.map(item => `
+                    <div class="subsidy-card">
+                        <div class="subsidy-icon">✅</div>
+                        <div class="subsidy-content">
+                            <h4>Government Scheme</h4>
+                            <p>${item}</p>
+                        </div>
+                    </div>
+                `).join("")}
+            `;
+        } else {
+            result.innerHTML = '<div class="error-card">❌ Error fetching subsidies. Please try again.</div>';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        result.innerHTML = '<div class="error-card">❌ Network error. Please try again.</div>';
     }
-
-    if (category === "small") {
-        subsidies.push("PM-KISAN income support scheme");
-    }
-
-    if (land >= 5) {
-        subsidies.push("Machinery & equipment subsidy");
-    }
-
-    subsidies.push("Soil testing & irrigation assistance available");
-
-    result.innerHTML = subsidies.map(item => `
-        <div class="subsidy-card">
-            <h3>Eligible Subsidy</h3>
-            <p>${item}</p>
-        </div>
-    `).join("");
 });

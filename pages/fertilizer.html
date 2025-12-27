@@ -3,60 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fertilizer Advisory</title>
-    <link rel="stylesheet" href="../css/style.css" >
+    <title>Fertilizer Advisory - SoilSync</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  
-    <header>
-        <div class="container">
-            <h1>🌱 Fertilizer Advisory for Farmers</h1>
-            <p>Get personalized fertilizer recommendations for your crops!</p>
+    <header class="header">
+        <div class="brand">
+            🌱 <strong>SoilSync</strong>
+            <small>Fertilizer Advisory</small>
         </div>
+        <nav class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="chatbot.html">Chatbot</a>
+        </nav>
     </header>
 
-    <main>
-        <div class="container form-container">
+    <main class="container">
+        <div class="page-header">
+            <h1>🌿 Smart Fertilizer Recommendations</h1>
+            <p>Get personalized fertilizer advice based on your crop and soil conditions</p>
+        </div>
+
+        <div class="form-card">
             <form id="fertilizerForm">
-                <label for="crop">Select Crop:</label>
-                <select id="crop" required>
-                    <option value="">--Choose Crop--</option>
-                    <option value="wheat">Wheat</option>
-                    <option value="rice">Rice</option>
-                    <option value="maize">Maize</option>
-                    <option value="vegetables">Vegetables</option>
-                </select>
+                <div class="input-grid">
+                    <div class="input-box">
+                        <label for="crop">Select Crop:</label>
+                        <select id="crop" required>
+                            <option value="">--Choose Crop--</option>
+                            <option value="wheat">Wheat</option>
+                            <option value="rice">Rice</option>
+                            <option value="maize">Maize</option>
+                            <option value="vegetables">Vegetables</option>
+                        </select>
+                    </div>
 
-                <label for="soil">Select Soil Type:</label>
-                <select id="soil" required>
-                    <option value="">--Choose Soil--</option>
-                    <option value="loamy">Loamy</option>
-                    <option value="sandy">Sandy</option>
-                    <option value="clay">Clay</option>
-                    <option value="silty">Silty</option>
-                </select>
+                    <div class="input-box">
+                        <label for="soil">Select Soil Type:</label>
+                        <select id="soil" required>
+                            <option value="">--Choose Soil--</option>
+                            <option value="loamy">Loamy</option>
+                            <option value="sandy">Sandy</option>
+                            <option value="clay">Clay</option>
+                            <option value="black">Black</option>
+                        </select>
+                    </div>
 
-                <label for="growth">Growth Stage:</label>
-                <select id="growth" required>
-                    <option value="">--Choose Stage--</option>
-                    <option value="initial">Initial Stage</option>
-                    <option value="vegetative">Vegetative Stage</option>
-                    <option value="flowering">Flowering Stage</option>
-                    <option value="harvest">Harvest Stage</option>
-                </select>
+                    <div class="input-box">
+                        <label for="growth">Growth Stage:</label>
+                        <select id="growth" required>
+                            <option value="">--Choose Stage--</option>
+                            <option value="initial">Initial Stage</option>
+                            <option value="vegetative">Vegetative Stage</option>
+                            <option value="flowering">Flowering Stage</option>
+                            <option value="maturity">Maturity Stage</option>
+                        </select>
+                    </div>
+                </div>
 
-                <button type="submit">Get Recommendation</button>
+                <button type="submit" class="primary-btn">🌱 Get Fertilizer Recommendation</button>
             </form>
+        </div>
 
-            <div id="recommendation" class="recommendation-card">
-                <h2>Your Recommendation:</h2>
-                <p id="recText">Fill the form and click submit.</p>
+        <div id="recommendation" class="result-card">
+            <h2>📊 Your Fertilizer Recommendation</h2>
+            <div id="recText" class="recommendation-content">
+                Fill the form above and click submit to get personalized fertilizer recommendations.
             </div>
         </div>
     </main>
 
-    
-
-    <script src="fertilizer.js"></script>
+    <script src="../js/fertilizer.js"></script>
 </body>
 </html>
