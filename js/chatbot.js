@@ -2,32 +2,35 @@
 let recognition = null;
 
 // -------------------- SEND MESSAGE --------------------
-function sendMessage() {
+async function sendMessage() {
   const input = document.getElementById("userInput");
   const chatBox = document.getElementById("chatBox");
-  const langSelect = document.getElementById("languageSelect");
 
-  if (!input || !chatBox || !langSelect) return;
-  if (input.value.trim() === "") return;
+  const message = input.value.trim();
+  if (!message) return;
 
-  const userText = input.value;
-  const lang = langSelect.value;
-
-  // Show user message
-  chatBox.innerHTML += `<div class="user-msg">${userText}</div>`;
-
-  // Language-based bot reply
-  let reply = "I am analyzing your query...";
-  if (lang === "hi-IN") reply = "मैं आपके प्रश्न का विश्लेषण कर रहा हूँ...";
-  if (lang === "mr-IN") reply = "मी तुमचा प्रश्न विश्लेषित करत आहे...";
-
-  // Show bot message
-  chatBox.innerHTML += `<div class="bot-msg">${reply}</div>`;
-
-  // Speak reply
-  speak(reply);
-
+  chatBox.innerHTML += `<div class="user-msg">${message}</div>`;
   input.value = "";
+
+  try {
+    const response = await fetch("http://127.0.0.1:8000/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: message,
+        language: "en"   // change later using dropdown
+      })
+    });
+
+    const data = await response.json();
+    chatBox.innerHTML += `<div class="bot-msg">${data.reply}</div>`;
+
+  } catch (error) {
+    chatBox.innerHTML += `<div class="bot-msg error">Backend not reachable</div>`;
+  }
+
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
