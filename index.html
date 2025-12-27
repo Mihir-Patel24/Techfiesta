@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SoilSync | AI-Powered Farmer Advisory Platform</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    🌱 <strong>SoilSync</strong>
+    <small>AI Farmer Advisory Platform</small>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#home"><i class="fas fa-home"></i> Home</a>
+    <a href="#services"><i class="fas fa-seedling"></i> Services</a>
+    <a href="pages/chatbot.html"><i class="fas fa-robot"></i> AI Chat</a>
+    <a href="pages/weather.html"><i class="fas fa-cloud"></i> Weather</a>
+  </nav>
+
+  <div class="header-actions">
+    <select id="languageSelect" class="lang-select">
+      <option value="en-IN">🇮🇳 English</option>
+      <option value="hi-IN">🇮🇳 हिंदी</option>
+      <option value="mr-IN">🇮🇳 मराठी</option>
+    </select>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Empowering Indian Farmers<br>with <span class="highlight">AI Intelligence</span></h1>
+      <p class="hero-description">
+        🌾 Advanced crop disease detection • 🌦️ Real-time weather intelligence • 💬 Multilingual AI support • 🏦 Government schemes
+      </p>
+      <div class="hero-buttons">
+        <a href="pages/chatbot.html" class="btn-primary">
+          <i class="fas fa-robot"></i> Start AI Assistant
+        </a>
+        <a href="pages/disease.html" class="btn-secondary">
+          <i class="fas fa-camera"></i> Detect Disease
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-card">
+        <i class="fas fa-leaf"></i>
+        <h3>AI Disease Detection</h3>
+        <p>95% Accuracy</p>
+      </div>
+      <div class="floating-card">
+        <i class="fas fa-cloud-sun"></i>
+        <h3>Weather Forecasts</h3>
+        <p>Real-time Data</p>
+      </div>
+      <div class="floating-card">
+        <i class="fas fa-language"></i>
+        <h3>Voice Support</h3>
+        <p>3 Languages</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE STATS -->
+<section class="stats">
+  <div class="stat-item">
+    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+    <h2>24×7</h2>
+    <p>AI Assistance</p>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><i class="fas fa-language"></i></div>
+    <h2>3+</h2>
+    <p>Languages</p>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><i class="fas fa-users"></i></div>
+    <h2>100%</h2>
+    <p>Farmer Focused</p>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon"><i class="fas fa-map-marker-alt"></i></div>
+    <h2>India</h2>
+    <p>Region Specific</p>
+  </div>
+</section>
+
+<!-- MAIN SERVICES -->
+<section id="services" class="services">
+  <div class="services-header">
+    <h2>Comprehensive Farmer Services</h2>
+    <p>AI-powered solutions for modern agriculture</p>
+  </div>
+
+  <div class="service-grid">
+
+    <a href="pages/chatbot.html" class="service-card blue">
+      <div class="service-icon">
+        <i class="fas fa-robot"></i>
+      </div>
+      <h3>AI Chatbot</h3>
+      <p>Advanced NLP chatbot with voice support and contextual understanding</p>
+      <div class="service-features">
+        <span>• Intent recognition with 95% accuracy</span>
+        <span>• Voice interaction in 3 languages</span>
+        <span>• Contextual memory & learning</span>
+      </div>
+    </a>
+
+    <a href="pages/crop.html" class="service-card green">
+      <div class="service-icon">
+        <i class="fas fa-seedling"></i>
+      </div>
+      <h3>Crop Prediction</h3>
+      <p>ML-powered crop recommendations based on soil, climate & market data</p>
+      <div class="service-features">
+        <span>• Soil analysis integration</span>
+        <span>• Market price predictions</span>
+        <span>• Seasonal optimization</span>
+      </div>
+    </a>
+        
+    <a href="pages/disease.html" class="service-card red">
+      <div class="service-icon">
+        <i class="fas fa-bug"></i>
+      </div>
+      <h3>Disease Detection</h3>
+      <p>CNN-powered image analysis with feature extraction and confidence scoring</p>
+      <div class="service-features">
+        <span>• Deep learning CNN model</span>
+        <span>• Multi-layer feature analysis</span>
+        <span>• Probability-based diagnosis</span>
+      </div>
+    </a>
+
+    <a href="pages/weather.html" class="service-card sky">
+      <div class="service-icon">
+        <i class="fas fa-cloud-sun"></i>
+      </div>
+      <h3>Smart Weather</h3>
+      <p>Real-time meteorological data with AI-powered farming recommendations</p>
+      <div class="service-features">
+        <span>• Live weather API integration</span>
+        <span>• Farming activity optimization</span>
+        <span>• Climate-based alerts</span>
+      </div>
+    </a>
+        
+    <a href="pages/fertilizer.html" class="service-card lime">
+      <div class="service-icon">
+        <i class="fas fa-flask"></i>
+      </div>
+      <h3>Fertilizer Advisory</h3>
+      <p>Precision nutrient management with soil-specific recommendations</p>
+      <div class="service-features">
+        <span>• NPK optimization algorithms</span>
+        <span>• Organic alternatives database</span>
+        <span>• Application timing AI</span>
+      </div>
+    </a>
+        
+    <a href="pages/subsidy.html" class="service-card orange">
+      <div class="service-icon">
+        <i class="fas fa-landmark"></i>
+      </div>
+      <h3>Subsidy Finder</h3>
+      <p>Government scheme matching with automated application assistance</p>
+      <div class="service-features">
+        <span>• Eligibility assessment AI</span>
+        <span>• Document automation</span>
+        <span>• Status tracking system</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- TECHNOLOGY SHOWCASE -->
+<section class="technology">
+  <div class="tech-content">
+    <h2>Powered by Advanced AI Technology</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <i class="fas fa-brain"></i>
+        <h3>Deep Learning</h3>
+        <p>CNN models with feature extraction for 95% disease detection accuracy</p>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-microphone"></i>
+        <h3>NLP & Voice AI</h3>
+        <p>Advanced natural language processing with intent recognition</p>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-satellite"></i>
+        <h3>Real-time APIs</h3>
+        <p>Live weather data integration with farming optimization algorithms</p>
+      </div>
+      <div class="tech-item">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile First</h3>
+        <p>Progressive web app optimized for smartphones and rural connectivity</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script src="js/language.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crop Recommendation - SoilSync</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      🌱 <strong>SoilSync</strong>
+      <small>Crop Recommendation</small>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="chatbot.html">Chatbot</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>🌾 Smart Crop Recommendation</h1>
+      <p>Get AI-powered crop suggestions based on your soil and environmental conditions</p>
+    </div>
+
+    <div class="form-card">
+      <form class="crop-form">
+        <div class="input-grid">
+          <div class="input-box">
+            <label>Soil Type</label>
+            <select id="soilType">
+              <option value="black">Black Soil</option>
+              <option value="clay">Clay Soil</option>
+              <option value="sandy">Sandy Soil</option>
+              <option value="loamy" selected>Loamy Soil</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <label>Climate</label>
+            <select id="climate">
+              <option value="tropical">Tropical</option>
+              <option value="subtropical" selected>Subtropical</option>
+              <option value="temperate">Temperate</option>
+              <option value="arid">Arid</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <label>Season</label>
+            <select id="season">
+              <option value="kharif" selected>Kharif (Monsoon)</option>
+              <option value="rabi">Rabi (Winter)</option>
+              <option value="zaid">Zaid (Summer)</option>
+            </select>
+          </div>
+
+          <div class="input-box">
+            <label>Water Availability</label>
+            <select id="water">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="button" onclick="predictCrop()" class="primary-btn">
+          🌱 Get Crop Recommendations
+        </button>
+      </form>
+    </div>
+
+    <div id="cropResult" class="result-card">
+      <h2>🌿 Crop Recommendations</h2>
+      <div class="result-content">
+        🌱 Fill the form above and click the button to get personalized crop recommendations
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/crop.js"></script>
+</body>
+</html>

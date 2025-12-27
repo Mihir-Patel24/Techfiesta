@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SoilSync | Disease Detection</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    🌱 <strong>SoilSync</strong>
+    <small>AI Farmer Advisory Platform</small>
+  </div>
+
+  <nav class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="../pages/chatbot.html">Chatbot</a>
+    <a href="../pages/crop.html">Crop Prediction</a>
+  </nav>
+
+  <div class="header-actions">
+    <select id="languageSelect" class="lang-select">
+      <option value="en-IN">English</option>
+      <option value="hi-IN">हिंदी</option>
+      <option value="mr-IN">मराठी</option>
+    </select>
+  </div>
+</header>
+
+<!-- MAIN -->
+<section class="disease-container">
+
+  <h2>🦠 AI Disease Detection</h2>
+  <p class="subtitle">
+    Choose your preferred method for disease diagnosis
+  </p>
+
+  <!-- METHOD SELECTION -->
+  <div class="method-tabs">
+    <button class="tab-btn active" onclick="showMethod('image')">📸 Image Analysis</button>
+    <button class="tab-btn" onclick="showMethod('quiz')">📝 Symptom Quiz</button>
+  </div>
+
+  <!-- IMAGE METHOD -->
+  <div id="imageMethod" class="method-content">
+    <div class="upload-box">
+      <input type="file" id="imageUpload" accept="image/*" />
+      <p>Select or capture a leaf image</p>
+      <small>Supports: JPG, PNG, WebP</small>
+    </div>
+    <img id="previewImage" class="preview-image" />
+    <button onclick="detectDisease()">🔍 Analyze Image</button>
+  </div>
+
+  <!-- QUIZ METHOD -->
+  <div id="quizMethod" class="method-content" style="display:none">
+    <div class="quiz-container">
+      <div id="quizQuestion" class="quiz-question"></div>
+      <div id="quizOptions" class="quiz-options"></div>
+      <button id="nextBtn" onclick="nextQuestion()" style="display:none">Next Question</button>
+      <button id="startQuizBtn" onclick="startQuiz()">🎯 Start Symptom Quiz</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="diseaseResult" class="result-box">
+    🧪 Detection result will appear here
+  </div>
+
+  <!-- TREATMENT RECOMMENDATIONS -->
+  <div id="treatmentRecommendations" class="treatment-box" style="display:none">
+    <h3>💊 Treatment Recommendations</h3>
+    <div id="treatmentContent"></div>
+  </div>
+
+</section>
+
+<script src="../js/disease.js"></script>
+<script src="../js/language.js"></script>
+
+</body>
+</html>
